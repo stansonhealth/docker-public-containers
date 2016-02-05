@@ -7,7 +7,7 @@ RUN ln -s /usr/bin/python3 /usr/bin/python
 RUN pip install awscli
 
 CMD mkdir -p /opt/app
-VOLUME /opt/app/
+VOLUME /opt/
 
 ADD requirements.txt /opt/app/requirements.txt
 RUN pip install -r /opt/app/requirements.txt
