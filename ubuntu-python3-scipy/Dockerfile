@@ -8,6 +8,7 @@ RUN pip install awscli
 
 CMD mkdir -p /opt/app
 VOLUME /opt/
+VOLUME /usr/src/app/
 
 ADD requirements.txt /opt/app/requirements.txt
 RUN pip install -r /opt/app/requirements.txt

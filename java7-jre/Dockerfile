@@ -4,3 +4,4 @@ FROM java:openjdk-7-jre
 # RUN
 CMD mkdir -p /opt/app
 VOLUME /opt/
+VOLUME /usr/src/app/
