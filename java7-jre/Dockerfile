@@ -1,7 +1,7 @@
 FROM phusion/baseimage:0.9.18
 
 # we need python- for aws-cli, if nothing else. "update" hasn't been done in the base container.
-RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y python=2.* python-pip
+RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y python=2.* python-pip openjdk-7-jre-headless
 RUN pip install --upgrade pip awscli
 
 CMD mkdir -p /opt/app
