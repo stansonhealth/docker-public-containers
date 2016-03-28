@@ -6,7 +6,7 @@ FROM phusion/baseimage:0.9.18
 # env: http://askubuntu.com/a/506635/69983
 ADD get-pip.py /usr/src/get-pip.py
 ADD requirements.txt /usr/src/requirements.txt
-RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y libpq-dev gcc python3-dev python3-scipy 
+RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y libpq-dev gcc python3-dev python3-scipy python3-pandas-lib python3-panda
 RUN python3 /usr/src/get-pip.py && pip3 install "psycopg2>=2.6,<2.7" awscli && pip install -r /usr/src/requirements.txt
 #RUN DEBIAN_FRONTEND=noninteractive apt-get autoremove -y gcc
 # keep this for later pip work
