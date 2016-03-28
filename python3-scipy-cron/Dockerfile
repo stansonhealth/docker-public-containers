@@ -5,7 +5,7 @@ FROM phusion/baseimage:0.9.18
 # need gcc to compile psycopg2
 # env: http://askubuntu.com/a/506635/69983
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y python3-pip libpq-dev gcc python3-dev python3-scipy 
-RUN pip3 install --upgrade pip3 && apt-get autoremove python3-pip  # ancient version in apt
+RUN pip3 install --upgrade pip3 && apt-get autoremove python3-pip && ln -s /usr/local/bin/pip /usr/local/bin/pip3  # ancient version in apt
 RUN pip3 install "psycopg2>=2.6,<2.7" && pip3 install awscli
 RUN DEBIAN_FRONTEND=noninteractive apt-get autoremove -y gcc
 
