@@ -19,12 +19,13 @@ VOLUME /usr/src/app/
 
 ENV build_s3_bucket="BUCKET_NAME"
 ENV build_s3_key="BUCKET_KEY"
+ENV luigi_client_s3_path="TODO"
 
 # make sure volumes are the last thing done in their directory. otherwise contents are discarded with a further file operation.
 VOLUME /opt/
 VOLUME /usr/src/app/
 
 # no matter the command, we wrap it with my_init, which gets the services running.
-CMD /sbin/my_init -- bash -c "mkdir -p /opt/app && aws --region=us-east-1 s3 cp s3://${build_s3_bucket}/${build_s3_key} /opt/app/app.tgz && tar -C /opt/app/ -xzvf /opt/app/app.tgz && bash /opt/app/run.sh"
+CMD /sbin/my_init -- bash -c "echo \"env: $luigi_client_config_s3_path\" && if [ \"$luigi_client_config_s3_path\" != \"TODO\" ]; then aws --region=us-east-1 s3 cp ${luigi_client_config_s3_path} /etc/luigi/client.cfg; fi; mkdir -p /opt/app && aws --region=us-east-1 s3 cp s3://${build_s3_bucket}/${build_s3_key} /opt/app/app.tgz && tar -C /opt/app/ -xzvf /opt/app/app.tgz && bash /opt/app/run.sh"
 
 
