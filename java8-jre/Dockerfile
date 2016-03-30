@@ -14,4 +14,4 @@ ENV build_s3_key="BUCKET_KEY"
 # RUN
 CMD mkdir -p /opt/app
 VOLUME /opt/app/
-CMD /sbin/my_init -- bash -c "mkdir -p /opt/app && aws --region=us-east-1 s3 cp s3://${build_s3_bucket}/${build_s3_key} /opt/app/app.tgz && tar -C /opt/app/ -xzvf /opt/app/app.tgz && bash -exv /opt/app/run.sh"
+CMD /sbin/my_init -- bash -c "mkdir -p /opt/app && aws --region=us-east-1 s3 cp s3://${build_s3_bucket}/${build_s3_key} /opt/app/app.tgz && tar -C /opt/app/ -xzvf /opt/app/app.tgz && bash -ev /opt/app/run.sh"
