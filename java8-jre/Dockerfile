@@ -1,17 +1,18 @@
 FROM phusion/baseimage:0.9.18
 # debian based; https://github.com/docker-library/openjdk/blob/master/openjdk-8-jre/Dockerfile
 
-# we need python- for aws-cli, if nothing else. "update" hasn't been done in the base container.
+# we need python- for aws-cli, if nothing else.
 ADD get-pip.py /usr/src/get-pip.py
-RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y libpq-dev gcc python3-dev openjdk-8-jre-headless openjdk-8-jdk
+
+## OpenJDK 8 PPA
+RUN echo deb http://ppa.launchpad.net/openjdk-r/ppa/ubuntu trusty main > /etc/apt/sources.list.d/openjdk8.list && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys DA1A4A13543B466853BAF164EB9B1D8886F44E2A && DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y libpq-dev gcc python3-dev openjdk-8-jre-headless openjdk-8-jdk
 RUN python3 /usr/src/get-pip.py && pip3 install --upgrade awscli
 
 ENV build_s3_bucket="BUCKET_NAME"
 ENV build_s3_key="BUCKET_KEY"
-ENV luigi_client_config_s3_path="TODO"
 
 # RUN
 CMD mkdir -p /opt/app
 VOLUME /opt/
 VOLUME /usr/src/app/
-CMD /sbin/my_init -- bash -c "echo \"env: $luigi_client_config_s3_path\" && if [ \"$luigi_client_config_s3_path\" != \"TODO\" ]; then aws --region=us-east-1 s3 cp ${luigi_client_config_s3_path} /etc/luigi/client.cfg; fi; mkdir -p /opt/app && aws --region=us-east-1 s3 cp s3://${build_s3_bucket}/${build_s3_key} /opt/app/app.tgz && tar -C /opt/app/ -xzvf /opt/app/app.tgz && bash /opt/app/run.sh"
+CMD /sbin/my_init -- bash -c "mkdir -p /opt/app && aws --region=us-east-1 s3 cp s3://${build_s3_bucket}/${build_s3_key} /opt/app/app.tgz && tar -C /opt/app/ -xzvf /opt/app/app.tgz && bash /opt/app/run.sh"
