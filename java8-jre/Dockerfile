@@ -1,10 +1,10 @@
-FROM java:openjdk-8-jre
+FROM phusion/baseimage:0.9.18
 # debian based; https://github.com/docker-library/openjdk/blob/master/openjdk-8-jre/Dockerfile
 
 # we need python- for aws-cli, if nothing else. "update" hasn't been done in the base container.
-# also, buildpack-deps doesn't have bash ¯\_(ツ)_/¯
-RUN apt-get update && apt-get install -y python=2.* python-pip bash
-RUN pip install --upgrade pip awscli
+ADD get-pip.py /usr/src/get-pip.py
+RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y libpq-dev gcc python3-dev openjdk-8-jre-headless openjdk-8-jdk
+RUN python3 /usr/src/get-pip.py && pip3 install --upgrade awscli
 
 ENV build_s3_bucket="BUCKET_NAME"
 ENV build_s3_key="BUCKET_KEY"
