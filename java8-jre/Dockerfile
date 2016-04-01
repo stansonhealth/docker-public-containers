@@ -8,6 +8,10 @@ ADD get-pip.py /usr/src/get-pip.py
 RUN echo deb http://ppa.launchpad.net/openjdk-r/ppa/ubuntu trusty main > /etc/apt/sources.list.d/openjdk8.list && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys DA1A4A13543B466853BAF164EB9B1D8886F44E2A && DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y libpq-dev gcc python3-dev openjdk-8-jre-headless openjdk-8-jdk unzip
 RUN python3 /usr/src/get-pip.py && pip3 install --upgrade awscli
 
+ADD aws-rds-ssl-2016.pem /usr/src/aws-rds-ssl-2016.pem
+# 'changeit' is the default for java. yeah, wtf.
+RUN keytool -import -keystore /etc/ssl/certs/java/cacerts -file /usr/src/aws-rds-ssl-2016.pem -storepass 'changeit' -noprompt -alias aws-rds-2016-v2
+
 ENV build_s3_bucket="BUCKET_NAME"
 ENV build_s3_key="BUCKET_KEY"
 
