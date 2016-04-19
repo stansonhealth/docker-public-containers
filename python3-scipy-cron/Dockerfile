@@ -14,7 +14,7 @@ ADD requirements.txt /usr/src/requirements.txt
 ADD neurodebian.sources.list /etc/apt/sources.list.d/neurodebian.sources.list
 RUN apt-key adv --recv-keys --keyserver hkp://pgp.mit.edu:80 0xA5D32F012649A5A9
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y libpq-dev gcc python3-dev "python3-pandas>=0.17.1"
+RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y libpq-dev gcc python3-dev "python3-pandas=0.17.*"
 # others: python3-scipy python3-pandas-lib python3-pandas
 
 RUN python3 /usr/src/get-pip.py && pip3 install "psycopg2>=2.6,<2.7" awscli && LANG=en_US.UTF-8 pip install -r /usr/src/requirements.txt
