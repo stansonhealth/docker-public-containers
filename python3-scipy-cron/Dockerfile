@@ -15,8 +15,8 @@ ADD requirements.txt /usr/src/requirements.txt
 ##ADD neurodebian.sources.list /etc/apt/sources.list.d/neurodebian.sources.list
 ##RUN apt-key adv --recv-keys --keyserver hkp://pgp.mit.edu:80 0xA5D32F012649A5A9
 
-# need python3-dev for any pip installs, basically.
-RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y libpq-dev python3-dev g++ # "python3-pandas=0.17.*"
+# need python3-dev for any pip installs, basically. freetype, pkg-config are for matplotlib
+RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y libpq-dev python3-dev g++ libfreetype6-dev pkg-config # "python3-pandas=0.17.*"
 ## others: python3-scipy python3-pandas-lib python3-pandas
 
 RUN python3 /usr/src/get-pip.py && pip3 install "psycopg2>=2.6,<2.7" cython "pandas>=0.18,<0.19" "scipy>=0.17,<0.18" awscli && LANG=en_US.UTF-8 pip install --upgrade -r /usr/src/requirements.txt
