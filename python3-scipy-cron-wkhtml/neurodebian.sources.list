@@ -1,0 +1,11 @@
+# ubuntu
+deb http://masi.vuse.vanderbilt.edu/neurodebian data main contrib non-free
+#deb-src http://masi.vuse.vanderbilt.edu/neurodebian data main contrib non-free
+deb http://masi.vuse.vanderbilt.edu/neurodebian trusty main contrib non-free
+#deb-src http://masi.vuse.vanderbilt.edu/neurodebian trusty main contrib non-free
+
+# debian
+deb http://masi.vuse.vanderbilt.edu/neurodebian data main contrib non-free
+#deb-src http://masi.vuse.vanderbilt.edu/neurodebian data main contrib non-free
+deb http://masi.vuse.vanderbilt.edu/neurodebian jessie main contrib non-free
+#deb-src http://masi.vuse.vanderbilt.edu/neurodebian jessie main contrib non-free
