@@ -4,12 +4,12 @@ FROM phusion/baseimage:0.9.18
 
 # need gcc to compile psycopg2
 # env: http://askubuntu.com/a/506635/69983
-ADD get-pip.py /usr/src/get-pip.py
-ADD requirements.txt /usr/src/requirements.txt
+COPY get-pip.py requirements.txt /usr/src/
 
 # generically-built binary, http://wkhtmltopdf.org/downloads.html
 # http://download.gna.org/wkhtmltopdf/0.12/0.12.3/wkhtmltox-0.12.3_linux-generic-amd64.tar.xz
-ADD wkhtmltox-0.12.3_linux-generic-amd64.tar.xz /usr/src/wkhtmltox-0.12.x.tar.xz
+# ADD expands a tar; we need to pass params so that's bad.
+COPY wkhtmltox-0.12.3_linux-generic-amd64.tar.xz /usr/src/wkhtmltox-0.12.x.tar.xz
 RUN tar -xvf /usr/src/wkhtmltox-0.12.x.tar.xz -C /usr/local/ --strip 1
 # now wkhtmltoimage, wkhtmltopdf are in /usr/local/bin, as well as libs/man pages/etc
 
