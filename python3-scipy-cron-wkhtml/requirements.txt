@@ -43,6 +43,7 @@ python-dateutil~=2.4
 python-mimeparse~=1.5
 pytz~=2015.4
 requests~=2.9
+scipy==0.17.1
 seaborn~=0.7
 six~=1.9
 testresources~=1.0
