@@ -15,12 +15,12 @@ ecdsa~=0.13
 extras~=0.0
 fixtures~=1.4
 futures~=2.2
-gnupg~=2.0
+python-gnupg>=0.3.8
 hypothesis~=2.0
 jmespath~=0.7
 linecache2~=1.0
 lockfile~=0.12
-luigi~=2.0
+luigi==2.1.1
 mandrill~=1.0
 matplotlib~=1.5
 mock~=1.0
