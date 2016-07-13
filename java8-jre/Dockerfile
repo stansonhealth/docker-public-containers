@@ -3,6 +3,7 @@ FROM phusion/baseimage:0.9.18
 
 # we need python- for aws-cli, if nothing else.
 ADD get-pip.py /usr/src/get-pip.py
+ADD requirements.txt /usr/src/requirements.txt
 
 ## OpenJDK 8 PPA
 RUN echo deb http://ppa.launchpad.net/openjdk-r/ppa/ubuntu trusty main > /etc/apt/sources.list.d/openjdk8.list && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys DA1A4A13543B466853BAF164EB9B1D8886F44E2A && DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y libpq-dev gcc python3-dev openjdk-8-jre-headless openjdk-8-jdk unzip
