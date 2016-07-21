@@ -32,5 +32,10 @@
     "tslint": "^3.5.0",
     "typescript": "^1.8.10",
     "typings": "^1.0.4"
+  },
+  "scripts": {
+    "start": "gulp serve",
+    "build": "gulp prod",
+    "postinstall": "typings install"
   }
 }
