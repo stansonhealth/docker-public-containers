@@ -35,7 +35,6 @@ nose-exclude==0.4.1
 nose-testconfig==0.10
 nosy==1.2
 numpy==1.11.0
-paramiko==1.17.0
 pbr==1.8.1
 pexpect==4.1.0
 pickleshare==0.7.2
