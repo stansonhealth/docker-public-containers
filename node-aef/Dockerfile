@@ -4,7 +4,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y ruby-com
 
 ADD package.json /usr/src/package.json
 ADD typings.json /usr/src/typings.json
-RUN cd /usr/src && npm install && npm run postinstall
+RUN cd /usr/src && npm install  --color=false --spin=false --progress=false --loglevel=warn && npm run postinstall --color=false --spin=false --progress=false --loglevel=warn
 
 EXPOSE 3000
 CMD cd /opt/app && npm start
