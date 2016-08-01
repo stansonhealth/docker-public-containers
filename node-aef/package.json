@@ -39,6 +39,7 @@
     "karma-jasmine": "~1.0.2",
     "karma-phantomjs-launcher": "~1.0.1",
     "karma-sourcemap-loader": "^0.3.7",
+    "karma-threshold-reporter": "^0.1.15",
     "lodash": "^4.13.1",
     "ng2-bootstrap": "^1.0.24",
     "phantomjs-prebuilt": "^2.1.7",
@@ -65,5 +66,7 @@
     "serve-build": "gulp serve-build",
     "clean": "gulp clean",
     "coverage": "coveralls < ./report/remap/lcov.info"
-  }
+  },
+  "name": "aef",
+  "version": "0.0.1"
 }
