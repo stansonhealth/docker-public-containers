@@ -1,8 +1,8 @@
 var gulp = require('gulp'),
     requireDir = require('require-dir'),
-    tasks = requireDir('./config/gulp/tasks'),
-    config = require('./config/gulp/config')(),
-    envConfig = require('./config/gulp/env');
+    tasks = requireDir('./app/config/gulp/tasks'),
+    config = require('./app/config/gulp/config')(),
+    envConfig = require('./app/config/gulp/env');
 
 console.log('============ Angular 2 Starter ============');
 console.log('Current environment: ' + envConfig.ENV);
