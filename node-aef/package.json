@@ -8,8 +8,8 @@
     "@angular/platform-browser": "2.0.0-rc.4",
     "@angular/platform-browser-dynamic": "2.0.0-rc.4",
     "@angular/router": "3.0.0-beta.2",
-    "@angular2-material/checkbox": "^2.0.0-alpha.6",
-    "@angular2-material/core": "^2.0.0-alpha.6",
+    "@angular2-material/checkbox": "2.0.0-alpha.6",
+    "@angular2-material/core": "2.0.0-alpha.6",
     "@ngstarter/systemjs-extension": "1.0.0-rc.3",
     "bootstrap-sass": "^3.3.6",
     "codelyzer": "0.0.25",
@@ -65,7 +65,11 @@
     "build": "gulp build",
     "serve-build": "gulp serve-build",
     "clean": "gulp clean",
-    "coverage": "coveralls < ./report/remap/lcov.info"
+    "coverage": "coveralls < ./report/remap/lcov.info",
+    "docker-test": "gulp test --env=docker-prod",
+    "docker-test-w": "gulp test --env=docker-prod -w",
+    "docker-build": "gulp build --env=docker-prod",
+    "docker-start": "gulp serve-dev --env=docker-dev"
   },
   "name": "aef",
   "version": "0.0.1"
