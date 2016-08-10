@@ -65,7 +65,11 @@
     "build": "gulp build",
     "serve-build": "gulp serve-build",
     "clean": "gulp clean",
-    "coverage": "coveralls < ./report/remap/lcov.info"
+    "coverage": "coveralls < ./report/remap/lcov.info",
+    "docker-test": "gulp test --env=docker-prod",
+    "docker-test-w": "gulp test --env=docker-prod -w",
+    "docker-build": "gulp build --env=docker-prod",
+    "docker-start": "gulp serve-dev --env=docker-dev"
   },
   "name": "aef",
   "version": "0.0.1"
