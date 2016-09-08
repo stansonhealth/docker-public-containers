@@ -1,6 +1,6 @@
 FROM node:6.3
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y ruby-compass vim-tiny && gem install bootstrap-sass
+RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y ruby-compass vim-tiny libffi-dev build-essential libssl-dev && gem install bootstrap-sass
 
 # /opt/ because we'll run from /opt/app/, and this puts node_modules upstream of that.
 ADD package.json typings.json gulpfile.js tslint.json tsconfig.json /opt/
