@@ -25,7 +25,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y libpq-de
 
 # others: python3-scipy python3-pandas-lib python3-pandas
 
-RUN python3 /usr/src/get-pip.py && pip3 install "psycopg2>=2.6,<2.7" cython "pandas>=0.18,<0.19" "scipy>=0.17.1,<0.18" awscli && LANG=en_US.UTF-8 pip install --upgrade -r /usr/src/requirements.txt && python3 -m nltk.downloader -d /usr/local/share/nltk_data wordnet
+RUN python3 /usr/src/get-pip.py && pip3 install "psycopg2>=2.6,<2.7" cython "pandas>=0.18,<0.19" "scipy>=0.17.1,<0.18" awscli && LANG=en_US.UTF-8 pip install --upgrade -r /usr/src/requirements.txt && python3 -m nltk.downloader -d /usr/local/share/nltk_data wordnet punkt
 #RUN DEBIAN_FRONTEND=noninteractive apt-get autoremove -y gcc
 # keep this for later pip work
 
