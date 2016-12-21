@@ -6,6 +6,7 @@ ADD get-pip.py /usr/src/get-pip.py
 ADD requirements.txt /usr/src/requirements.txt
 
 ## OpenJDK 8 PPA
+RUN dpkg --purge --force-depends ca-certificates-java
 RUN echo deb http://ppa.launchpad.net/openjdk-r/ppa/ubuntu trusty main > /etc/apt/sources.list.d/openjdk8.list && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys DA1A4A13543B466853BAF164EB9B1D8886F44E2A && DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y libpq-dev gcc python3-dev openjdk-8-jre-headless openjdk-8-jdk unzip libffi-dev build-essential libssl-dev ca-certificates ca-certificates-java
 RUN python3 /usr/src/get-pip.py && pip3 install --upgrade awscli && LANG=en_US.UTF-8 pip install --upgrade -r /usr/src/requirements.txt
 
