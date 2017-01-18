@@ -1,8 +1,9 @@
 
 backports-abc==0.4
 backports.shutil-get-terminal-size==1.0.0
-boto3>=1.3.1
+boto3>=1.4.2
 botocore>=1.4.25
+chardet==2.3.0
 coverage==3.7.1
 cycler==0.10.0
 Cython==0.24
@@ -43,6 +44,7 @@ psycopg2==2.6.1
 ptyprocess==0.5.1
 pycryptodome>=3.4
 pyflakes==1.2.3
+PyMySQL==0.7.7
 pyparsing==2.1.4
 pyrsistent==0.11.12
 pysftp==0.2.8
@@ -50,7 +52,7 @@ python-daemon==2.1.1
 python-dateutil==2.4.2
 python-mimeparse==1.5.1
 pytz==2015.7
-requests==2.10.0
+requests==2.12.3
 simplegeneric==0.8.1
 six==1.10.0
 SQLAlchemy==1.0.13

@@ -1,8 +1,9 @@
 
 backports-abc==0.4
 backports.shutil-get-terminal-size==1.0.0
-boto3>=1.3.1
+boto3>=1.4.2
 botocore>=1.4.25
+chardet==2.3.0
 coverage==3.7.1
 cycler==0.10.0
 Cython==0.24
@@ -43,6 +44,7 @@ psycopg2==2.6.1
 ptyprocess==0.5.1
 pycryptodome>=3.4
 pyflakes==1.2.3
+PyMySQL==0.7.7
 pyparsing==2.1.4
 pyrsistent==0.11.12
 pysftp==0.2.8
@@ -50,7 +52,7 @@ python-daemon==2.1.1
 python-dateutil==2.4.2
 python-mimeparse==1.5.1
 pytz==2015.7
-requests==2.10.0
+requests==2.12.3
 simplegeneric==0.8.1
 six==1.10.0
 SQLAlchemy==1.0.13
@@ -64,13 +66,14 @@ Werkzeug==0.11.10
 wheel==0.29.0
 XlsxWriter==0.8.9
 xmltodict==0.10.1
-
+biopython==1.68
 gensim==0.13.0
 nltk==3.2.1
 pandas==0.18.1
-scikit-learn==0.17.1
+scikit-learn==0.18
 scipy==0.17.1
 smart-open==1.3.3
+
 matplotlib==1.5.1
 seaborn==0.7.0
 pdfkit==0.5.0

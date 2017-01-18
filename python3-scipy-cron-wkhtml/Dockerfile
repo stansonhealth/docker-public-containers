@@ -18,14 +18,14 @@ RUN tar -xvf /usr/src/wkhtmltox-0.12.x.tar.xz -C /usr/local/ --strip 1
 # http://neuro.debian.net/pkgs/python3-pandas-lib.html
 
 # need python3-dev for any pip installs, basically. freetype, pkg-config are for matplotlib. zlib and packages after that are for wkhtmltox, which doesn't require having a headless X anymore.
-RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y libpq-dev python3-dev g++ libfreetype6-dev pkg-config libxrender1 fontconfig libxext6
+RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y libpq-dev python3-dev g++ libfreetype6-dev pkg-config libxrender1 fontconfig libxext6 libffi-dev build-essential libssl-dev
 
 # other wkhtml dependencies; testing didn't inciate they were necessary: 
 # zlib1g libfreetype6 libx11-6 libpng12-0 libjpeg8 
 
 # others: python3-scipy python3-pandas-lib python3-pandas
 
-RUN python3 /usr/src/get-pip.py && pip3 install "psycopg2>=2.6,<2.7" cython "pandas>=0.18,<0.19" "scipy>=0.17.1,<0.18" awscli && LANG=en_US.UTF-8 pip install --upgrade -r /usr/src/requirements.txt && python3 -m nltk.downloader -d /usr/local/share/nltk_data wordnet
+RUN python3 /usr/src/get-pip.py && pip3 install "psycopg2>=2.6,<2.7" cython "pandas>=0.18,<0.19" "scipy>=0.17.1,<0.18" awscli && LANG=en_US.UTF-8 pip install --upgrade -r /usr/src/requirements.txt && python3 -m nltk.downloader -d /usr/local/share/nltk_data wordnet punkt stopwords
 #RUN DEBIAN_FRONTEND=noninteractive apt-get autoremove -y gcc
 # keep this for later pip work
 
