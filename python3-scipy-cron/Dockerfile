@@ -1,4 +1,4 @@
-FROM phusion/baseimage:0.9.18
+FROM phusion/baseimage:0.11
 # look for new versions here: https://github.com/phusion/baseimage-docker/blob/master/Changelog.md
 # has 'python3', nothing linked to 'python'.
 
@@ -19,7 +19,8 @@ ADD requirements.txt /usr/src/requirements.txt
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y libpq-dev python3-dev g++ libfreetype6-dev pkg-config libffi-dev build-essential libssl-dev # "python3-pandas=0.17.*"
 ## others: python3-scipy python3-pandas-lib python3-pandas
 
-RUN python3 /usr/src/get-pip.py && pip3 install "psycopg2>=2.6,<2.7" cython "pandas>=0.18,<0.19" "scipy>=0.17.1,<0.18" awscli && LANG=en_US.UTF-8 pip install --upgrade -r /usr/src/requirements.txt && python3 -m nltk.downloader -d /usr/local/share/nltk_data wordnet punkt stopwords
+
+RUN python3 /usr/src/get-pip.py && pip3 install "psycopg2~=2.7.1" cython "pandas~=0.23.4" "scipy~=1.1.0" awscli && LANG=en_US.UTF-8 pip3 install --upgrade -r /usr/src/requirements.txt && python3 -m nltk.downloader -d /usr/local/share/nltk_data wordnet punkt stopwords
 #RUN DEBIAN_FRONTEND=noninteractive apt-get autoremove -y gcc
 # keep this for later pip work
 
